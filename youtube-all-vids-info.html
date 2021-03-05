@@ -76,7 +76,7 @@ var accumulatorFull = [];
 // When the Basic Listing button is pressed
 $("#search-btn").on("click", function() {
 	// to trigger on a button click
-	document.getElementById("output").value = '"num","date","title","id","link"\n';
+	document.getElementById("output").value = '"num","title","date","link"\n';
 	var params = {
 		"vidslimit" : parseInt( document.getElementById("vidslimit").value ) || 50,
 		"accessKey" : document.getElementById("accesskey").value, 
@@ -111,7 +111,7 @@ function getVideos(nextPageToken, vidsDone, params) {
 			// process JSON variable, extract the 50 videos info		
 			for (i=0; i < data.items.length; i++) {
 				vidsDone ++;
-				document.getElementById("output").value += vidsDone + ',"' + data.items[i].snippet.publishedAt.substr(0,10) + '","' + data.items[i].snippet.title + '","' + data.items[i].snippet.resourceId.videoId + '","' + 'https://youtu.be/' + data.items[i].snippet.resourceId.videoId  + '"\n';
+				document.getElementById("output").value += vidsDone + ',"' + data.items[i].snippet.title + '","' data.items[i].snippet.publishedAt.substr(0,10) + '","' + 'https://youtu.be/' + data.items[i].snippet.resourceId.videoId  + '"\n';
 				// 
 				vidsList.push(data.items[i].snippet.resourceId.videoId);
 			}
